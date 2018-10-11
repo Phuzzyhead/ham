@@ -3,8 +3,8 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef ham_net_communicator_mpi_hpp
-#define ham_net_communicator_mpi_hpp
+#ifndef ham_net_communicator_mpi_rma_dynamic_hpp
+#define ham_net_communicator_mpi_rma_dynamic_hpp
 
 #include <mpi.h>
 
@@ -207,7 +207,7 @@ public:
             }
         }
 
-        // initialise 1 global window per target
+        // initialise 1 global window per target for data
         for (node_t i = 1; i < nodes_; ++i) {
             MPI_Win_create_dynamic(MPI_INFO_NULL, MPI_COMM_WORLD, &(peers[i].rma_win));
         }

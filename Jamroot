@@ -32,13 +32,14 @@ project HAM
 	<include>$(INC)
 	<include>$(BOOST_PATH)/include
 	<variant>debug:<define>HAM_DEBUG_ON
-#	<variant>debug_mic:<define>HAM_DEBUG_ON 
+	<variant>debug_mic:<define>HAM_DEBUG_ON 
 #	<toolset>intel:<cflags>"-static-intel"
 	<inlining>on # off, on, full
 	#<optimization>speed # off, speed, space
-	<cxxflags>"-hstd=c++11"
+	<cxxflags>"-hstd=c++11 -lrt"
 	<threading>multi
-#	<link>static
+	<link>static
+	<linkflags>"-lrt"
 	: default-build release
 #	: default-build debug release debug_mic release_mic
 	;
